@@ -1,12 +1,12 @@
 # Closely following https://www.mercurial-scm.org/wiki/HgWebDirStepByStep
 
-FROM ubuntu:19.04
+FROM ubuntu:20.04
 LABEL maintainer="Matthäus G. Chajdas <dev@anteru.net>"
 
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get -qq update
 RUN apt-get -y install apache2 libapache2-mod-wsgi-py3 python3-pip
 
-ENV HGPYTHON3=1
 # This will get us the latest mercurial, while apt-get install mercurial will
 # end up installing some old version
 RUN pip3 install mercurial
